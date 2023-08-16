@@ -1,0 +1,13 @@
+Package: pkgsolveOLG
+Type: Package
+Title: Solves a simple AK-OLG-model for closed economy in R/C++
+Version: 0.1
+Date: 2023-07-21
+Authors@R: 
+    person("Philip", "Schuster", email="schuster.philip@gmail.com", role=c("aut","cre"))
+Description: Solves a simple AK-OLG-model for closed economy in R/C++
+License: MIT + file LICENSE
+Imports: 
+    Rcpp (>= 1.0.9),
+    rootSolve
+LinkingTo: Rcpp, RcppArmadillo
