@@ -103,7 +103,7 @@ double HH_root(const double lambdain, const int sage0, const int z0 ___DataOLG_d
   
   // CONSUMPTION
   pcz.submat(sage,z,nag-1,z)      = 1+tauCz.submat(sage,z,nag-1,z);
-  Consz.submat(fag-1,z,nag-1,z)   = pow(pcz.submat(fag-1,z,nag-1,z)%lambdaz.submat(fag-1,z,nag-1,z),-sigma); // should this be from fag:nag or from sage:nag???
+  Consz.submat(sage,z,nag-1,z)   = pow(pcz.submat(sage,z,nag-1,z)%lambdaz.submat(sage,z,nag-1,z),-sigma);
   
   // HOURS SUPPLY
   ellz.submat(sage,z,nag-1,z)     = pow((wz.submat(sage,z,nag-1,z)%(1-tauWz.submat(sage,z,nag-1,z))%thetaz.submat(sage,z,nag-1,z)/pcz.submat(sage,z,nag-1,z)%pow(Consz.submat(sage,z,nag-1,z),-1/sigma))/parlv0.subvec(sage,nag-1),sigL);
