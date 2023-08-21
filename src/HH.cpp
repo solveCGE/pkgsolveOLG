@@ -81,7 +81,7 @@ void HH(const int sage0, const int z0, const int maxiter, const double stol, con
   }
   
   if (abs(Savz(nag-1,z0-1)) > atol) {
-    HH_nonconvz(z0-1) = 1; // counter
+    HH_nonconvz(nag-1,z0-1) = 1; // counter
   }
   
 }
