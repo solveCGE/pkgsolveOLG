@@ -96,7 +96,6 @@ List solveOLG_(int starttime, int maxiter, double tol, double damping_budget, do
     w               = MPL(K,LD,TFP,alpha)/(1+tauF);
     wv              = arma::kron(w,onescol(nag));
     wz              = per2coh(wv);
-    //wz              = per2coh(w,nag); // <- IS THIS IMPLEMENTED???!!! rather convert first to wv
     V               = qTob%K;
     TaxF            = tauprof%(Y-(1+tauF)%w%LD-delta*K);
     Div             = Y-(1+tauF)%w%LD-Inv-TaxF;
@@ -198,7 +197,6 @@ List solveOLG_(int starttime, int maxiter, double tol, double damping_budget, do
     arma::rowvec r_new           = rdemand(newassets ___dataOLG___);
     r               = damping_r*r_new + (1-damping_r)*r;
     rv              = arma::kron(r,onescol(nag));
-    //rz              = per2coh(r,nag);
     rz              = per2coh(rv);
     
     scaleab         = 1+(aggcoh2per((1-gamz)%Savz%Nz)/ab-1)*damping_ab;
