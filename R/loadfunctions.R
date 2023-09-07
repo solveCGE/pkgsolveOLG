@@ -72,53 +72,6 @@ fillvars <- function(agedep,varnames) {
   }
 }
 
-# convert variable from cohort-view to period-view
-# coh2per <- function(inmat) {
-#   maxage = nrow(inmat);
-#   numcoh = ncol(inmat);
-#   numper = numcoh-(maxage-1);
-#   
-#   if (numper<=0) stop("coh2per: insufficient number of columns in input matrix");
-#   
-#   outmat = matrix(nrow=maxage,ncol=numper);
-#   
-#   for (a in 1:maxage) {
-#     outmat[a,] = inmat[a,(maxage:numcoh)-(a-1)];
-#   }
-#   
-#   return(outmat);
-# }
-
-# convert variable from period-view to cohort-view
-# per2coh <- function(inmat, numrow = NULL, calibvec = NULL) {
-#   numper = ncol(inmat);
-#   
-#   if (!is.null(numrow)) {
-#     inmat = matrix(inmat,byrow = T, nrow=numrow,ncol=numper);
-#   }
-#   if (is.null(calibvec)) {
-#     calibvec = inmat[,1];
-#   }
-#   
-#   maxage = nrow(inmat);
-#   numcoh = numper+(maxage-1);
-#   
-#   outmat = matrix(nrow=maxage,ncol=numcoh);
-#   
-#   for (a in 1:maxage) {
-#     if (a < maxage) outmat[a,1:(maxage-a)] = rep(calibvec[a],maxage-a);
-#     outmat[a,(maxage:numcoh)-(a-1)] = inmat[a,];
-#     if (a > 1) outmat[a,(numcoh-(a-2)):numcoh] = rep(inmat[a,numper],a-1);
-#   }
-#   
-#   return(outmat);
-# }
-# 
-# # convert variable from cohort-view to period-view and aggregate over age
-# aggcoh2per <- function(inmat) {
-#   return(matrix(colSums(coh2per(inmat)),nrow=1));
-# }
-
 zeroscol <- function(dim1) {
   return(matrix(rep(0,dim1),nrow=dim1,ncol=1));
 }
@@ -162,7 +115,7 @@ solveOLG <- function(starttime = 1, maxiter = 200, tol = 1e-4, damping_budget = 
   
   makeelementsglobal(dataOLG, env=parent.frame());
   
-  cat(paste0("CHECK SOLUTION:\t\t", sum(abs(edy)+abs(edl)+abs(edg)+abs(eda)+abs(ediv)+abs(edab))),"\n");
+  cat(paste0("CHECK SOLUTION:\t\t", max(abs(edy)+abs(edl)+abs(edg)+abs(eda)+abs(ediv)+abs(edab))),"\n");
   
 } 
 
