@@ -1,9 +1,9 @@
 #ifdef ___USEGLOBAL___
-  #ifdef ___USEFIXED___
-    #include "auto/globalfixed_init_ext.h"
-  #else
-    #include "auto/global_init_ext.h"
-  #endif
+#ifdef ___USEFIXED___
+#include "auto/globalfixed_init_ext.h"
+#else
+#include "auto/global_init_ext.h"
+#endif
 #endif
 
 arma::rowvec fY(const arma::rowvec& K, const arma::rowvec& L, const arma::rowvec& TFP, double alpha);
